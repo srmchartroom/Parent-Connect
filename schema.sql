@@ -1,4 +1,4 @@
 -- Drops the blogger if it exists currently --
-DROP DATABASE IF EXISTS passport_demo;
+DROP DATABASE IF EXISTS parent_posts;
 -- Creates the "blogger" database --
-CREATE DATABASE passport_demo;
+CREATE DATABASE parent_posts;

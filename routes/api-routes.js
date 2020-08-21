@@ -50,4 +50,80 @@ module.exports = function(app) {
       });
     }
   });
+
+  app.post("/api/posts", (req, res) => {
+    db.Post.create({
+      UserId: req.body.user_id,
+      title: req.body.title,
+      body: req.body.body,
+      link: req.body.link,
+      category: req.body.category,
+      district: req.body.district,
+      school: req.body.school,
+      grade: req.body.grade,
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
+  app.get("/api/posts/user", (req, res) => {
+    var user_id = parseInt(req.body.user_id);
+    db.Post.findAll({
+      where: {
+        UserId: user_id
+      }
+    })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+  });
+
+  app.get("/api/posts/district", (req, res) => {
+    db.Post.findAll({
+      where: {
+        district: req.body.district
+      }
+    })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+    
+  });
+
+  app.get("/api/posts/school", (req, res) => {
+    db.Post.findAll({
+      where: {
+        school: req.body.school
+      }
+    })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+    
+  });
+
+  app.get("/api/posts/grade", (req, res) => {
+    db.Post.findAll({
+      where: {
+        grade: req.body.grade
+      }
+    })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+    
+  });
+
+  app.get("/api/posts/category", (req, res) => {
+    db.Post.findAll({
+      where: {
+        category: req.body.category
+      }
+    })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+    
+  });
+
 };
