@@ -116,6 +116,4 @@ module.exports = function(app) {
       res.json(dbPost);
     });
   });
-
-  //! Comment change for api-routes....
 };
