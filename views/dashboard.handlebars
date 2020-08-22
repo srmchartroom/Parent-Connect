@@ -7,13 +7,95 @@
     </div>
   </div>
 </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2>Welcome <span class="member-name"></span></h2>
     </div>
   </div>
+</div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/members.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/members.js"></script>
+<script type="text/javascript" src="/js/postform.js"></script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>place to post</h1>
+
+  <!-- post form 
+        title element, text input, good
+        body element, text input, good
+        link element, text input, good
+        category element, make a dropdown, good
+        district element, text inputs, good 
+        school element, text inputs, good
+        grade element, make a dropdown, good-->
+
+  <form id="post_form">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input placeholder="Post Title" type="text" class="form-control" id="title" />
+      <br />
+      <label for="body">Body:</label>
+      <textarea placeholder="Post Body" class="form-control" rows="10" id="body"></textarea>
+      <br />
+      <label for="link">Link:</label>
+      <textarea placeholder="Link URL" class="form-control" rows="1" id="link"></textarea>
+
+      <!-- fill in hard code -->
+
+      <div class="form-group">
+        <label for="category">Select Category:</label>
+        <select class="custom-select" id="category">
+          <option value="question">Question</option>
+          <option value="Announcement">Announcement</option>
+          <option value="Issue">Issue</option>
+          <option value="General">General</option>
+        </select>
+      </div>
+      <br />
+      <label for="district">District:</label>
+      <textarea placeholder="District Name" class="form-control" rows="1" id="district"></textarea>
+      <br />
+      <label for="school">School:</label>
+      <textarea placeholder="School Name" class="form-control" rows="1" id="school"></textarea>
+      <div class="form-group">
+        <label for="category">Select Grade:</label>
+        <select class="custom-select" id="grade">
+          <option value="K">K</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-success submit">Submit</button>
+    </div>
+  </form>
+
+  <h1>posts to view</h1>
+
+  get all user posts, button get posts for district name (text input) get
+  posts for school name (text input) get posts for grade name (text input)
+</body>
+
+</html>
