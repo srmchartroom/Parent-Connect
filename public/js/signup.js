@@ -3,12 +3,16 @@ $(document).ready(() => {
   const signUpForm = $("form.signup");
   const emailInput = $("input#email-input");
   const passwordInput = $("input#password-input");
+  const firstInput = $("input#first-name");
+  const lastInput = $("input#last-name");
 
   console.log("signup.js loaded correctly");
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", (event) => {
     event.preventDefault();
     const userData = {
+      first: firstInput.val().trim(),
+      last: lastInput.val().trim(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
@@ -26,6 +30,8 @@ $(document).ready(() => {
   // Otherwise we log any errors
   function signUpUser(email, password) {
     $.post("/api/signup", {
+      first: first,
+      last: last,
       email: email,
       password: password
     })
