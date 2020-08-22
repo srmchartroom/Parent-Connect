@@ -58,8 +58,6 @@ module.exports = function(app) {
   app.post("/api/posts", (req, res) => {
     db.Post.create({
       UserId: req.body.user_id,
-      first: req.user.first,
-      last: req.user.last,
       title: req.body.title,
       body: req.body.body,
       link: req.body.link,
