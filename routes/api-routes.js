@@ -25,7 +25,7 @@ module.exports = function(app) {
       .then(() => {
         res.redirect(307, "/api/login");
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(401).json(err);
       });
   });
@@ -60,7 +60,7 @@ module.exports = function(app) {
       category: req.body.category,
       district: req.body.district,
       school: req.body.school,
-      grade: req.body.grade,
+      grade: req.body.grade
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -72,10 +72,9 @@ module.exports = function(app) {
       where: {
         UserId: user_id
       }
-    })
-      .then(function(dbPost) {
-        res.json(dbPost);
-      });
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
   });
 
   app.get("/api/posts/district", (req, res) => {
@@ -83,11 +82,9 @@ module.exports = function(app) {
       where: {
         district: req.body.district
       }
-    })
-      .then(function(dbPost) {
-        res.json(dbPost);
-      });
-    
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
   });
 
   app.get("/api/posts/school", (req, res) => {
@@ -95,11 +92,9 @@ module.exports = function(app) {
       where: {
         school: req.body.school
       }
-    })
-      .then(function(dbPost) {
-        res.json(dbPost);
-      });
-    
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
   });
 
   app.get("/api/posts/grade", (req, res) => {
@@ -107,11 +102,9 @@ module.exports = function(app) {
       where: {
         grade: req.body.grade
       }
-    })
-      .then(function(dbPost) {
-        res.json(dbPost);
-      });
-    
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
   });
 
   app.get("/api/posts/category", (req, res) => {
@@ -119,11 +112,10 @@ module.exports = function(app) {
       where: {
         category: req.body.category
       }
-    })
-      .then(function(dbPost) {
-        res.json(dbPost);
-      });
-    
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
   });
 
+  //! Comment change for api-routes....
 };
