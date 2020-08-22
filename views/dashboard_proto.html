@@ -33,7 +33,7 @@
                 <!-- fill in hard code -->
 
               <div class="form-group">
-                <label for="category">Select Author:</label>
+                <label for="category">Select Category:</label>
                 <select class="custom-select" id="author">
                     <option value="question">Question</option>
                     <option value="Announcement">Announcement</option>
@@ -72,12 +72,72 @@
           </form>
 
 
-    <h1>posts to view</h1>
+    <h1>Search for Posts</h1>
 
-        get all user posts, button 
+    <form id="search_form">
+        <div class="form-group">
+
+
+
+          <div class="form-group">
+            <label for="category">Select Category:</label>
+            <select class="custom-select" id="author">
+                <option value="question">Question</option>
+                <option value="Announcement">Announcement</option>
+                <option value="Issue">Issue</option>
+                <option value="General">General</option>
+            </select>
+          </div>
+          <br />
+
+          <label for="user">User:</label>
+          <textarea placeholder="User Name" class="form-control" rows="1" id="user"></textarea>
+          <br />
+
+          <label for="district">District:</label>
+          <textarea placeholder="District Name" class="form-control" rows="1" id="district"></textarea>
+          <br />
+          <label for="school">School:</label>
+          <textarea placeholder="School Name" class="form-control" rows="1" id="school"></textarea>
+
+
+          <div class="form-group">
+            <label for="category">Select Grade:</label>
+            <select class="custom-select" id="grade">
+                <option value="K">K</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+               
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-success submit">Submit</button>
+        </div>
+      </form>
+
+    <h1>Post Results</h1>
+      
+    <div class="post-results">
+
+        <p>Posts will go here</p>
+    </div>
+
+
+
+        <!-- get all user posts, button 
         get posts for district name (text input)
         get posts for school name (text input)
-        get posts for grade name (text input)
+        get posts for grade name (text input) -->
 
 
 </body>
