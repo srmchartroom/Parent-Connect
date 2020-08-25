@@ -25,6 +25,21 @@ module.exports = function(app) {
     res.render("login");
   });
 
+  const testobject = [
+    {
+      id: 1,
+      title: "11 home school essentials",
+      body: "Good video from a mom of pre-k and toddlers - covers 11 home school essentials.  Check it out.",
+      link: "https://www.youtube.com/watch?v=qPfhQQTm2-I",
+      category: "General",
+      district: "Guilford County Schools",
+      school: "Millis Road Elementary",
+      grade: "K",
+      createdAt: "2020-08-25T04:06:55.000Z",
+      updatedAt: "2020-08-25T04:06:55.000Z",
+      UserId: 1
+    }
+  ];
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   // const hbsObject = [];

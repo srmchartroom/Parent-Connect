@@ -70,13 +70,13 @@ module.exports = function(app) {
     });
   });
 
-  // app.get("/api/posts-all", (req, res) => {
-  //   db.Post.findAll({}).then((postsDB) => {
-  //     return res.json({
-  //       post: postsDB
-  //     });
-  //   });
-  // });
+  app.get("/api/posts-all", (req, res) => {
+    db.Post.findAll({}).then((postsDB) => {
+      return res.json({
+        post: postsDB
+      });
+    });
+  });
 
   // app.get("/api/posts/all", (req, res) => {
   //   db.post.findAll({
