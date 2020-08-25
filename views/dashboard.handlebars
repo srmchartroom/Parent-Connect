@@ -1,37 +1,129 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
-    </div>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-blue">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDark" aria-controls="navbarTogglerDark" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/members"><img src="/assets/PC-10.png" width="50px" height="100%" style=" margin-left: 20px; margin-right: 20px;" /> <span class="logo parents">parents</span> <span class="logo connect">connect</span></a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDark">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item main-nav active">
+        <a class="nav-link" href="/members">Dashboard <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item main-nav">
+        <a class="nav-link" href="/logout">New Post</a>
+      </li>
+      <li class="nav-item main-nav">
+        <a class="nav-link" href="/profile" tabindex="-1" aria-disabled="true">Update Profile</a>
+      </li>
+    </ul>
+    
   </div>
 </nav>
+
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <h2>Welcome <span class="member-name"></span></h2>
-    </div>
+    <div class="col-md-6">
+      <h2 class="mt-5">Welcome <span class="member-name"></span>!</h2>
+      <p class="text-left">Let's Get Connecting!</p>
+      <nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Search Posts</a>
+    <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Create a Post</a>
+    <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Filter Posts</a>
   </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <!-- Tab content for the Search Tab -->
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div> <!-- End of search tab content -->
+  <!-- Tab content for the Create a Post Tab -->
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <div class="container">
+      <h1>place to post</h1>
+      <div class="row"> <!-- form row -->
+        <div class="col col-sm-4"> <!-- form col -->
+          <form id="post_form">
+            <div class="form-group"> <!-- Post Title Input Field -->
+              <label for="title">Title (of Post, Question, Issue, etc.): <span class="req">(*REQUIRED)</span></label>
+              <input placeholder="Please enter a descriptive title." type="text" class="form-control" id="title" />
+            </div>
+            <div class="form-group"> <!-- Post Category DropDown Custom Selection -->
+              <label for="category">Type of Post <span class="req">(*REQUIRED)</span><br><span class="small">Select from the drop-down below:</span></label>
+              <select class="custom-select" id="category">
+                <option value="resource">Resource(s)</option>
+                <option value="question">Question?</option>
+                <option value="announcement">Announcement!</option>
+                <option value="issue">Issue :( </option>
+                <option value="general">General ;) </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="body">Enter your Post: <span class="req">(*REQUIRED)</span> </label>
+              <textarea placeholder="Enter your Post (question, issue, resource, announcement, etc.) here. Feel free to add as much (or as little) detail as you like." class="form-control" rows="10" id="body"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="district">City or County School District <br><span class="small">(optional, enter if desired or post pertains to it)</span></label>
+              <input placeholder="(e.g. Wake County Schools)" class="form-control" rows="1" id="district"></input>
+            </div>
+            <div class="form-group">
+              <label for="school">School Name <br><span class="small">(optional, enter if desired or post pertains to it)</span></label>
+              <input placeholder="Wanahakalugi Primary Learning Center" class="form-control" rows="1" id="school"></input>
+            </div>
+            <div class="form-group">
+              <label for="category">Select Grade Level: <br><span class="small">(optional, enter if desired or post pertains to it)</span></label>
+              <select class="custom-select" id="grade">
+                <option value="K">Pre-K</option>
+                <option value="K">K</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="link">Link: <br><span class="small">(optional, enter if a link is available and pertains to your post)</span></label>
+              <input placeholder="(e.g. https://www.youtube.com/great-video)" class="form-control" rows="1" id="link"></input>    
+            </div> 
+            <br>
+            <button type="submit" class="btn btn-signin submit">Submit</button>   
+          </form>    
+        </div> <!-- End of form col -->
+      </div> <!-- End of Form row -->
+    </div> <!-- End of container -->
+  </div> <!-- End of Create a Post Tab content -->
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">tab 3 content</div>
+</div>
+      
+
+
+<h1 class="text-dark">posts to view</h1>
+
+<!--
+  
+-->
+<div>
+{{#each post}}
+  <p>New Post</p>
+ {{> posts/latest-block}}
+{{/each}}
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="/js/members.js"></script>
-<script type="text/javascript" src="/js/postform.js"></script>
+  1- get latest user posts, 2-button get posts for district name (text input) 3-get
+  posts for school name (text input) 4-get posts for grade name (text input) 5-search
 
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-</head>
-
-<body>
-  <h1>place to post</h1>
-
+  <hr>
   <!-- post form 
         title element, text input, good
         body element, text input, good
@@ -41,65 +133,14 @@
         school element, text inputs, good
         grade element, make a dropdown, good-->
 
-  <form id="post_form">
-    <div class="form-group">
-      <label for="title">Title:</label>
-      <input placeholder="Post Title" type="text" class="form-control" id="title" />
-      <br />
-      <label for="body">Body:</label>
-      <textarea placeholder="Post Body" class="form-control" rows="10" id="body"></textarea>
-      <br />
-      <label for="link">Link:</label>
-      <textarea placeholder="Link URL" class="form-control" rows="1" id="link"></textarea>
 
-      <!-- fill in hard code -->
+<br>
+<br>
+<br>
+<br>
 
-      <div class="form-group">
-        <label for="category">Select Category:</label>
-        <select class="custom-select" id="category">
-          <option value="question">Question</option>
-          <option value="Announcement">Announcement</option>
-          <option value="Issue">Issue</option>
-          <option value="General">General</option>
-        </select>
-      </div>
-      <br />
-      <label for="district">District:</label>
-      <textarea placeholder="District Name" class="form-control" rows="1" id="district"></textarea>
-      <br />
-      <label for="school">School:</label>
-      <textarea placeholder="School Name" class="form-control" rows="1" id="school"></textarea>
-      <div class="form-group">
-        <label for="category">Select Grade:</label>
-        <select class="custom-select" id="grade">
-          <option value="K">K</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-        </select>
-      </div>
 
-      <button type="submit" class="btn btn-success submit">Submit</button>
-    </div>
-  </form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/members.js"></script>
+<script type="text/javascript" src="/js/postform.js"></script>
 
-  <h1>posts to view</h1>
-
-  {{#each posts}}
-  {{> posts/latest-block}}
-  {{/each}}
-
-  1- get latest user posts, 2-button get posts for district name (text input) 3-get
-  posts for school name (text input) 4-get posts for grade name (text input) 5-search
-</body>
-
-</html>

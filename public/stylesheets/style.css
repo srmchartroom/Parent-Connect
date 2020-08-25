@@ -9,6 +9,18 @@ label {
   letter-spacing: 0px;
 }
 
+.logo {
+  font: normal normal normal 28px/48px "Questrial", sans-serif;
+  padding-top: 20px;
+  padding-bottom: 0;
+  vertical-align: bottom;
+}
+.parents {
+  color: #bce0fd;
+}
+.connect {
+  color: #2699fb;
+}
 .signin-row {
   /* height: auto; */
   /* max-height: 100vh; */
@@ -26,6 +38,12 @@ label {
   align-content: center;
 }
 
+.req {
+  color: red;
+  font-size: 50%;
+  vertical-align: super;
+}
+
 /* 
 form.signup,
 form.login {
@@ -38,7 +56,6 @@ form.login {
   border-radius: 5px;
   width: 100%;
   padding: 10px;
-  margin-top: 3rem;
   font: normal normal bold 12px/15px Montserrat;
   letter-spacing: 0.6px;
   color: #ffffff;
@@ -74,4 +91,23 @@ h2 {
 
 .signin-body-col {
   background-color: #233975;
+}
+
+.navbar,
+.navbar-blue,
+.navbar-dark,
+.bg-dark {
+  background-color: #233975 !important;
+  color: #fff;
+}
+
+.nav-link .main-nav {
+  color: #fff;
+}
+.nav-item:active .nav-link:active .active {
+  color: #bce0fd;
+}
+.nav-item:hover,
+.nav-link:hover {
+  color: #2699fb;
 }
