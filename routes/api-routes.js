@@ -70,6 +70,14 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/posts/all", (req, res) => {
+    db.Post.findAll({
+      order: ["createdAt", "DESC"]
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
   app.get("/api/posts/user", (req, res) => {
     var user_id = parseInt(req.body.user_id);
     db.Post.findAll({
