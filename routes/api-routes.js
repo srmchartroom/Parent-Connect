@@ -86,6 +86,30 @@ module.exports = function(app) {
   //   });
   // });
 
+  const { Op } = require(“sequelize”);
+  app.get("/api/posts/string", (req, res) => {
+    var string = req.body.string;
+    db.Post.findAll({
+      where: {
+        [Op.or]: [
+          {
+            title: {
+              [Op.substring]: string,
+            },
+          },
+          {
+            body: {
+              [Op.substring]: string,
+            },
+          },
+        ],
+      },
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
+
   app.get("/api/posts/user", (req, res) => {
     var user_id = parseInt(req.body.user_id);
     db.Post.findAll({
