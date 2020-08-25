@@ -10,7 +10,7 @@ module.exports = function(app) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
-      id: req.user.id
+      id: req.user.id,
     });
   });
 
@@ -22,7 +22,7 @@ module.exports = function(app) {
       first: req.body.first,
       last: req.body.last,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
     })
       .then(() => {
         res.redirect(307, "/api/login");
@@ -50,7 +50,7 @@ module.exports = function(app) {
         first: req.user.first,
         last: req.user.last,
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
       });
     }
   });
@@ -64,7 +64,7 @@ module.exports = function(app) {
       category: req.body.category,
       district: req.body.district,
       school: req.body.school,
-      grade: req.body.grade
+      grade: req.body.grade,
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -73,7 +73,7 @@ module.exports = function(app) {
   app.get("/api/posts-all", (req, res) => {
     db.Post.findAll({}).then((postsDB) => {
       return res.json({
-        post: postsDB
+        post: postsDB,
       });
     });
   });
@@ -86,7 +86,7 @@ module.exports = function(app) {
   //   });
   // });
 
-  const { Op } = require(“sequelize”);
+  const { Op } = require("sequelize");
   app.get("/api/posts/string", (req, res) => {
     var string = req.body.string;
     db.Post.findAll({
@@ -109,13 +109,12 @@ module.exports = function(app) {
     });
   });
 
-
   app.get("/api/posts/user", (req, res) => {
     var user_id = parseInt(req.body.user_id);
     db.Post.findAll({
       where: {
-        UserId: user_id
-      }
+        UserId: user_id,
+      },
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -124,8 +123,8 @@ module.exports = function(app) {
   app.get("/api/posts/district", (req, res) => {
     db.Post.findAll({
       where: {
-        district: req.body.district
-      }
+        district: req.body.district,
+      },
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -134,8 +133,8 @@ module.exports = function(app) {
   app.get("/api/posts/school", (req, res) => {
     db.Post.findAll({
       where: {
-        school: req.body.school
-      }
+        school: req.body.school,
+      },
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -144,8 +143,8 @@ module.exports = function(app) {
   app.get("/api/posts/grade", (req, res) => {
     db.Post.findAll({
       where: {
-        grade: req.body.grade
-      }
+        grade: req.body.grade,
+      },
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -154,8 +153,8 @@ module.exports = function(app) {
   app.get("/api/posts/category", (req, res) => {
     db.Post.findAll({
       where: {
-        category: req.body.category
-      }
+        category: req.body.category,
+      },
     }).then(function(dbPost) {
       res.json(dbPost);
     });
