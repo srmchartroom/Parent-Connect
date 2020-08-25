@@ -94,8 +94,12 @@
 
   <h1>posts to view</h1>
 
-  get all user posts, button get posts for district name (text input) get
-  posts for school name (text input) get posts for grade name (text input)
+  {{#each posts}}
+  {{> posts/latest-block}}
+  {{/each}}
+
+  1- get latest user posts, 2-button get posts for district name (text input) 3-get
+  posts for school name (text input) 4-get posts for grade name (text input) 5-search
 </body>
 
 </html>
