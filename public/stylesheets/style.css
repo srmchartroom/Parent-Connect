@@ -1,4 +1,77 @@
+p {
+  text-align: center;
+  font: normal normal normal 13px/20px Montserrat;
+  letter-spacing: 0px;
+}
+
+label {
+  font: normal normal normal 13px/20px Montserrat;
+  letter-spacing: 0px;
+}
+
+.signin-row {
+  /* height: auto; */
+  /* max-height: 100vh; */
+  /* min-height: 100vh; */
+}
+
+.signin-form-col {
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.8) !important;
+}
+
+.signin-logo {
+  margin-top: 2vh;
+  width: 20em;
+  height: 100%;
+  align-content: center;
+}
+
+/* 
 form.signup,
 form.login {
   margin-top: 50px;
+} */
+
+.btn-signin {
+  background-color: #233975;
+  border-color: #233975;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 3rem;
+  font: normal normal bold 12px/15px Montserrat;
+  letter-spacing: 0.6px;
+  color: #ffffff;
+  text-transform: uppercase;
+  opacity: 1;
+}
+
+h1,
+.signin-title {
+  text-align: center;
+  margin-top: 20vh;
+  font: normal normal bold 36px/54px Montserrat;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 1;
+}
+
+h2 {
+  text-align: left;
+  font: normal normal bold 24px/36px Montserrat;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+}
+
+.disclaimer {
+  text-align: center;
+  font: normal normal normal 10px/15px Montserrat;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+}
+
+.signin-body-col {
+  background-color: #233975;
 }
