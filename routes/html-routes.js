@@ -29,7 +29,8 @@ module.exports = function(app) {
     {
       id: 1,
       title: "11 home school essentials",
-      body: "Good video from a mom of pre-k and toddlers - covers 11 home school essentials.  Check it out.",
+      body:
+        "Good video from a mom of pre-k and toddlers - covers 11 home school essentials.  Check it out.",
       link: "https://www.youtube.com/watch?v=qPfhQQTm2-I",
       category: "General",
       district: "Guilford County Schools",
@@ -37,8 +38,8 @@ module.exports = function(app) {
       grade: "K",
       createdAt: "2020-08-25T04:06:55.000Z",
       updatedAt: "2020-08-25T04:06:55.000Z",
-      UserId: 1
-    }
+      UserId: 1,
+    },
   ];
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
@@ -47,7 +48,7 @@ module.exports = function(app) {
     db.Post.findAll({}).then((data) => {
       console.log("data :" + data);
       res.render("dashboard", {
-        post: data
+        post: data,
       });
     });
   });
