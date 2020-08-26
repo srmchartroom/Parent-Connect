@@ -1,4 +1,12 @@
-<li>
-	<h4><strong>{{dataValues.title}}</strong></h4>
-	<p>{{dataValues.body}}</p>
-</li>
+<div class="text-left mb-4 px-2">
+	<i class="fas fa-sim-card text-secondary"></i><a class="btn btn-link" data-toggle="collapse" href="#{{dataValues.id}}" role="button" aria-expanded="false" aria-controls="{{id}}">
+		<strong>{{dataValues.title}}</strong>
+	</a><br>
+	<span class="small pl-2">{{dataValues.createdAt}}</span><br>
+	<span class="badge badge-light">Grade: {{dataValues.grade}}</span>&nbsp;<span class="badge badge-light">{{dataValues.school}}</span>&nbsp;<span class="badge badge-light">{{dataValues.district}}</span>
+	<div class="collapse" id="{{dataValues.id}}">
+		<div class="card card-body">
+			{{dataValues.body}}
+		</div>
+	</div>
+</div>
