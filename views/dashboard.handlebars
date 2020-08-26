@@ -21,126 +21,172 @@
 </nav>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
+  <div class="row" width="100%">
+    <div class="col-md-6"> <!-- 1ST COL/OPTIONS -->
       <h2 class="mt-5">Welcome <span class="member-name"></span>!</h2>
       <p class="text-left">Let's Get Connecting!</p>
       <nav>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Search Posts</a>
-    <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Create a Post</a>
-    <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Filter Posts</a>
-  </div>
-</nav>
-<div class="tab-content" id="nav-tabContent">
-  <!-- Tab content for the Search Tab -->
-  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div> <!-- End of search tab content -->
-  <!-- Tab content for the Create a Post Tab -->
-  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-    <div class="container">
-      <h1>place to post</h1>
-      <div class="row"> <!-- form row -->
-        <div class="col col-sm-4"> <!-- form col -->
-          <form id="post_form">
-            <div class="form-group"> <!-- Post Title Input Field -->
-              <label for="title">Title (of Post, Question, Issue, etc.): <span class="req">(*REQUIRED)</span></label>
-              <input placeholder="Please enter a descriptive title." type="text" class="form-control" id="title" />
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Search Posts</a>
+          <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Create a Post</a>
+          <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Filter Posts</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <!-- Tab content for the Search Tab -->
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <form class="my-5" width="100%">
+            <input class="form-control mr-sm-2 pr-0" type="search" placeholder="What would you like to find?" aria-label="Search" width="100%"><br>
+            <button class="btn btn-signin my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div> <!-- End of search tab content -->
+        <!-- Tab content for the Create a Post Tab -->
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <div class="row mt-4 px-3"> <!-- form row -->
+            <h5 class="px-3" style="text-decoration: underline;">Create a New Post:</h5>
+            <hr>
+            <div class="col col-sm-12 mt-2"> <!-- form col -->
+              <form id="post_form">
+                <div class="form-group"> <!-- Post Title Input Field -->
+                  <label for="title">Title (of Post, Question, Issue, etc.): <span class="req">(*REQUIRED)</span></label>
+                  <input placeholder="Please enter a descriptive title." type="text" class="form-control" id="title" />
+                </div>
+                <div class="form-group"> <!-- Post Category DropDown Custom Selection -->
+                  <label for="category">Type of Post <span class="req">(*REQUIRED)</span><br><span class="small">Select from the drop-down below:</span></label>
+                  <select class="custom-select" id="category">
+                    <option value="resource">Resource(s)</option>
+                    <option value="question">Question?</option>
+                    <option value="announcement">Announcement!</option>
+                    <option value="issue">Issue :( </option>
+                    <option value="general">General ;) </option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="body">Enter your Post: <span class="req">(*REQUIRED)</span> </label>
+                  <textarea placeholder="Enter your Post (question, issue, resource, announcement, etc.) here. Feel free to add as much (or as little) detail as you like." class="form-control" rows="10" id="body"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="district">City or County School District <br><span class="small">(optional, enter if desired or post pertains to it)</span></label>
+                  <input placeholder="(e.g. Wake County Schools)" class="form-control" rows="1" id="district"></input>
+                </div>
+                <div class="form-group">
+                  <label for="school">School Name <br><span class="small">(optional, enter if desired or post pertains to it)</span></label>
+                  <input placeholder="Wanahakalugi Primary Learning Center" class="form-control" rows="1" id="school"></input>
+                </div>
+                <div class="form-group">
+                  <label for="category">Select Grade Level: <br><span class="small">(optional, enter if desired or post pertains to it)</span></label>
+                  <select class="custom-select" id="grade">
+                    <option value="K">Pre-K</option>
+                    <option value="K">K</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="link">Link: <br><span class="small">(optional, enter if a link is available and pertains to your post)</span></label>
+                  <input placeholder="(e.g. https://www.youtube.com/great-video)" class="form-control" rows="1" id="link"></input>    
+                </div> 
+                <br>
+                <button type="submit" class="btn btn-signin submit">Submit</button>   
+              </form>    
+            </div> <!-- End of form col -->
+          </div> <!-- End of Form row -->
+        </div> <!-- End of Create a Post Tab content -->
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+            <div class="form-check mt-3">
+              <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices1" value="option1" checked>
+              <label class="form-check-label" for="filterChoices1">
+                By Parent
+              </label>
             </div>
-            <div class="form-group"> <!-- Post Category DropDown Custom Selection -->
-              <label for="category">Type of Post <span class="req">(*REQUIRED)</span><br><span class="small">Select from the drop-down below:</span></label>
-              <select class="custom-select" id="category">
-                <option value="resource">Resource(s)</option>
-                <option value="question">Question?</option>
-                <option value="announcement">Announcement!</option>
-                <option value="issue">Issue :( </option>
-                <option value="general">General ;) </option>
-              </select>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices2" value="option2">
+              <label class="form-check-label" for="filterChoices2">
+                By Type of Post
+              </label>
             </div>
-            <div class="form-group">
-              <label for="body">Enter your Post: <span class="req">(*REQUIRED)</span> </label>
-              <textarea placeholder="Enter your Post (question, issue, resource, announcement, etc.) here. Feel free to add as much (or as little) detail as you like." class="form-control" rows="10" id="body"></textarea>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices3" value="option3">
+              <label class="form-check-label" for="filterChoices3">
+                By Grade Level
+              </label>
             </div>
-            <div class="form-group">
-              <label for="district">City or County School District <br><span class="small">(optional, enter if desired or post pertains to it)</span></label>
-              <input placeholder="(e.g. Wake County Schools)" class="form-control" rows="1" id="district"></input>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices4" value="option4">
+              <label class="form-check-label" for="filterChoices4">
+                By School
+              </label>
             </div>
-            <div class="form-group">
-              <label for="school">School Name <br><span class="small">(optional, enter if desired or post pertains to it)</span></label>
-              <input placeholder="Wanahakalugi Primary Learning Center" class="form-control" rows="1" id="school"></input>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices5" value="option5">
+              <label class="form-check-label" for="filterChoices5">
+                By School District
+              </label>
             </div>
-            <div class="form-group">
-              <label for="category">Select Grade Level: <br><span class="small">(optional, enter if desired or post pertains to it)</span></label>
-              <select class="custom-select" id="grade">
-                <option value="K">Pre-K</option>
-                <option value="K">K</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="link">Link: <br><span class="small">(optional, enter if a link is available and pertains to your post)</span></label>
-              <input placeholder="(e.g. https://www.youtube.com/great-video)" class="form-control" rows="1" id="link"></input>    
-            </div> 
-            <br>
-            <button type="submit" class="btn btn-signin submit">Submit</button>   
-          </form>    
-        </div> <!-- End of form col -->
-      </div> <!-- End of Form row -->
-    </div> <!-- End of container -->
-  </div> <!-- End of Create a Post Tab content -->
-  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">tab 3 content</div>
-</div>
-      
-
-
-<h1 class="text-dark">posts to view</h1>
-
-<!--
-  
--->
-<div>
-{{#each post}}
-  <p>New Post</p>
- {{> posts/latest-block}}
-{{/each}}
-</div>
-
-  1- get latest user posts, 2-button get posts for district name (text input) 3-get
-  posts for school name (text input) 4-get posts for grade name (text input) 5-search
-
-  <hr>
-  <!-- post form 
-        title element, text input, good
-        body element, text input, good
-        link element, text input, good
-        category element, make a dropdown, good
-        district element, text inputs, good 
-        school element, text inputs, good
-        grade element, make a dropdown, good-->
-
-
-<br>
-<br>
-<br>
-<br>
+            <form id="byUser" class="my-5 visible" width="100%"> <!-- By user -->
+              <div class="form-group">
+                <label for="userFilterInput">Filter by a Specific Parent's Posts:</label>
+                <input id="userFilterInput" class="form-control mr-sm-2 pr-0" type="search" placeholder="Enter Parent's Name Here" aria-label="Search" width="100%"><br>
+              </div>
+              <button id="user-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
+            </form>
+            <form id="byCategory" class="my-5 invisible" width="100%">
+              <div class="form-group">
+                <label for="categoryFilterInput">Filter by Type of Post:</label>
+                <input id="categoryFilterInput" class="form-control mr-sm-2 pr-0" type="search" placeholder="Enter Parent's Name Here" aria-label="Search" width="100%"><br>
+              </div>
+              <button id="category-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
+            </form>
+            <form id="byGrade" class="my-5 invisible" width="100%">
+              <div class="form-group">
+                <label for="gradeFilterInput">Filter by Grade Level:</label>
+                <input id="gradeFilterInput" class="form-control mr-sm-2 pr-0" type="search" placeholder="Enter Parent's Name Here" aria-label="Search" width="100%"><br>
+              </div>
+              <button id="grade-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
+            </form>
+            <form id="bySchool" class="my-5 invisible" width="100%">
+              <div class="form-group">
+                <label for="schoolFilterInput">Filter by School:</label>
+                <input id="schoolFilterInput" class="form-control mr-sm-2 pr-0" type="search" placeholder="Enter School to filter posts on" aria-label="Search" width="100%"><br>
+              </div>
+              <button id="school-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
+            </form>
+            <form id="byDistrict" class="my-5 invisible" width="100%">
+              <div class="form-group">
+                <label for="districtFilterInput">Filter by School District:</label>
+                <input id="districtFilterInput" class="form-control mr-sm-2 pr-0" type="search" placeholder="Enter School District to filter posts on" aria-label="Search" width="100%"><br>
+              </div>
+              <button id="district-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
+            </form>
+        </div>
+      </div> <!-- End of all Tab contents -->
+    </div> <!-- End of 1ST COL/OPTIONS -->
+    <div class="col-md-6 mt-5 pt-5 px-md-5"> <!-- 2ND COL/POST DISPLAY -->
+      <div class="current"> 
+        <h5 class="text-dark">Latest Posts</h5>
+        <div class="border border-bottom-1 border-left-1 border-top-1 px-2" style="border-radius: 10px;">
+          {{#each post}}
+            {{> posts/latest-block}}
+          {{/each}}
+        </div>
+      </div> <!-- END OF CURRENT BLOCK -->
+    </div> <!-- END OF 2ND COL/POST DISPLAY -->
+  </div> <!-- END OF ROW -->
+</div> <!-- END OF CONTAINER -->
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/members.js"></script>
 <script type="text/javascript" src="/js/postform.js"></script>
+
 
