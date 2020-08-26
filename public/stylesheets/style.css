@@ -1,3 +1,7 @@
+.hidden {
+  display: none;
+}
+
 p {
   text-align: center;
   font: normal normal normal 13px/20px Montserrat;
@@ -110,4 +114,9 @@ h2 {
 .nav-item:hover,
 .nav-link:hover {
   color: #2699fb;
+}
+
+.limit-height {
+  height: 60vh;
+  overflow-y: auto;
 }

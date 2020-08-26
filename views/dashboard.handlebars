@@ -6,11 +6,8 @@
 
   <div class="collapse navbar-collapse" id="navbarTogglerDark">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-      <li class="nav-item main-nav active">
-        <a class="nav-link" href="/members">Dashboard <span class="sr-only">(current)</span></a>
-      </li>
       <li class="nav-item main-nav">
-        <a class="nav-link" href="/logout">New Post</a>
+        <a class="nav-link" href="/logout">Logout</a>
       </li>
       <li class="nav-item main-nav">
         <a class="nav-link" href="/profile" tabindex="-1" aria-disabled="true">Update Profile</a>
@@ -103,65 +100,90 @@
           </div> <!-- End of Form row -->
         </div> <!-- End of Create a Post Tab content -->
         <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-            <div class="form-check mt-3">
-              <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices1" value="option1" checked>
-              <label class="form-check-label" for="filterChoices1">
-                By Parent
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices2" value="option2">
-              <label class="form-check-label" for="filterChoices2">
-                By Type of Post
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices3" value="option3">
-              <label class="form-check-label" for="filterChoices3">
-                By Grade Level
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices4" value="option4">
-              <label class="form-check-label" for="filterChoices4">
-                By School
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices5" value="option5">
-              <label class="form-check-label" for="filterChoices5">
-                By School District
-              </label>
-            </div>
-            <form id="byUser" class="my-5 visible" width="100%"> <!-- By user -->
+            <form id="filterSelections">
+              <div id="filterSelectionsGroup" class="form-group">
+                <div class="form-check mt-3">
+                  <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices1" value="option1" checked>
+                  <label class="form-check-label" for="filterChoices1">
+                    By Parent
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices2" value="option2">
+                  <label class="form-check-label" for="filterChoices2">
+                    By Type of Post
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices3" value="option3">
+                  <label class="form-check-label" for="filterChoices3">
+                    By Grade Level
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices4" value="option4">
+                  <label class="form-check-label" for="filterChoices4">
+                    By School
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices5" value="option5">
+                  <label class="form-check-label" for="filterChoices5">
+                    By School District
+                  </label>
+                </div>
+              </div>
+            </form>
+            <form id="byParent" class="my-5" width="100%"> <!-- By user -->
               <div class="form-group">
                 <label for="userFilterInput">Filter by a Specific Parent's Posts:</label>
                 <input id="userFilterInput" class="form-control mr-sm-2 pr-0" type="search" placeholder="Enter Parent's Name Here" aria-label="Search" width="100%"><br>
               </div>
               <button id="user-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
             </form>
-            <form id="byCategory" class="my-5 invisible" width="100%">
-              <div class="form-group">
-                <label for="categoryFilterInput">Filter by Type of Post:</label>
-                <input id="categoryFilterInput" class="form-control mr-sm-2 pr-0" type="search" placeholder="Enter Parent's Name Here" aria-label="Search" width="100%"><br>
-              </div>
+            <form id="byCategory" class="my-5 hidden" width="100%">
+              <div class="form-group"> <!-- Post Category DropDown Custom Selection -->
+                  <label for="categoryFilterInput">Filter by Type of Post</label>
+                  <select class="custom-select" id="categoryFilterInput">
+                    <option value="resource">Resource</option>
+                    <option value="question">Question</option>
+                    <option value="announcement">Announcement</option>
+                    <option value="issue">Issue</option>
+                    <option value="general">General</option>
+                  </select>
+                </div>
               <button id="category-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
             </form>
-            <form id="byGrade" class="my-5 invisible" width="100%">
+            <form id="byGrade" class="my-5 hidden" width="100%">
               <div class="form-group">
-                <label for="gradeFilterInput">Filter by Grade Level:</label>
-                <input id="gradeFilterInput" class="form-control mr-sm-2 pr-0" type="search" placeholder="Enter Parent's Name Here" aria-label="Search" width="100%"><br>
-              </div>
+                  <label for="gradeFilterInput">Filter by Grade Level:</label>
+                  <select id="gradeFilterInput" class="custom-select" id="grade" width="100%">
+                    <option value="K">Pre-K</option>
+                    <option value="K">K</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </div>
               <button id="grade-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
             </form>
-            <form id="bySchool" class="my-5 invisible" width="100%">
+            <form id="bySchool" class="my-5 hidden" width="100%">
               <div class="form-group">
                 <label for="schoolFilterInput">Filter by School:</label>
                 <input id="schoolFilterInput" class="form-control mr-sm-2 pr-0" type="search" placeholder="Enter School to filter posts on" aria-label="Search" width="100%"><br>
               </div>
               <button id="school-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
             </form>
-            <form id="byDistrict" class="my-5 invisible" width="100%">
+            <form id="byDistrict" class="my-5 hidden" width="100%">
               <div class="form-group">
                 <label for="districtFilterInput">Filter by School District:</label>
                 <input id="districtFilterInput" class="form-control mr-sm-2 pr-0" type="search" placeholder="Enter School District to filter posts on" aria-label="Search" width="100%"><br>
@@ -174,7 +196,7 @@
     <div class="col-md-6 mt-5 pt-5 px-md-5"> <!-- 2ND COL/POST DISPLAY -->
       <div class="current"> 
         <h5 class="text-dark">Latest Posts</h5>
-        <div class="border border-bottom-1 border-left-1 border-top-1 px-2" style="border-radius: 10px;">
+        <div class="border border-bottom-1 border-left-1 border-top-1 px-2 limit-height" style="border-radius: 10px;">
           {{#each post}}
             {{> posts/latest-block}}
           {{/each}}
