@@ -29,11 +29,13 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   // const hbsObject = [];
   app.get("/members", isAuthenticated, (req, res) => {
-    db.Post.findAll({}).then((data) => {
+    db.Post.findAll({
+      order: [["createdAt", "DESC"]]
+    }).then((data) => {
       console.log("data :" + data);
       res.render("dashboard", {
         post: data
       });
     });
   });
-};
+}; //End of module.exports

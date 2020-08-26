@@ -12,6 +12,9 @@
       <li class="nav-item main-nav">
         <a class="nav-link" href="/profile" tabindex="-1" aria-disabled="true">Update Profile</a>
       </li>
+      <li class="nav-item main-nav"></li>
+        <a class="nav-link" href="/members" tabindex="-1" aria-disabled="true">Latest Posts</a>
+      </li>
     </ul>
     
   </div>
@@ -32,8 +35,8 @@
       <div class="tab-content" id="nav-tabContent">
         <!-- Tab content for the Search Tab -->
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-          <form class="my-5" width="100%">
-            <input class="form-control mr-sm-2 pr-0" type="search" placeholder="What would you like to find?" aria-label="Search" width="100%"><br>
+          <form id="searchForm" class="my-5" width="100%">
+            <input id="searchInput" class="form-control mr-sm-2 pr-0" type="search" placeholder="What would you like to find?" aria-label="Search" width="100%"><br>
             <button class="btn btn-signin my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div> <!-- End of search tab content -->
@@ -145,11 +148,11 @@
               <div class="form-group"> <!-- Post Category DropDown Custom Selection -->
                   <label for="categoryFilterInput">Filter by Type of Post</label>
                   <select class="custom-select" id="categoryFilterInput">
-                    <option value="resource">Resource</option>
-                    <option value="question">Question</option>
-                    <option value="announcement">Announcement</option>
-                    <option value="issue">Issue</option>
-                    <option value="general">General</option>
+                    <option value="Resource">Resource</option>
+                    <option value="Question">Question</option>
+                    <option value="Announcement">Announcement</option>
+                    <option value="Issue">Issue</option>
+                    <option value="General">General</option>
                   </select>
                 </div>
               <button id="category-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
@@ -194,14 +197,23 @@
       </div> <!-- End of all Tab contents -->
     </div> <!-- End of 1ST COL/OPTIONS -->
     <div class="col-md-6 mt-5 pt-5 px-md-5"> <!-- 2ND COL/POST DISPLAY -->
-      <div class="current"> 
-        <h5 class="text-dark">Latest Posts</h5>
+      <div class="pt-0"> <!-- CURRENT POSTS RESULTS (DEFAULT) -->
+        <h5 id="current" class="text-dark">Latest Posts</h5>
+        <h5 id="categoryFilterResults" class="text-dark hidden"><span id="categoryNameSpan"></span></h5>
+        <h5 id="parentFilterResults" class="text-dark hidden"><span id="parentNameSpan"></span></h5>
+        <h5 id="gradeFilterResults" class="text-dark hidden"><span id="gradeSelectionSpan"></span></h5>
+        <h5 id="schoolFilterResults" class="text-dark hidden"><span id="schoolNameSpan"></span></h5>
+        <h5 id="districtFilterResults" class="text-dark hidden"><span id="districtNameSpan"></span></h5>
+        <h5 id="searchResults" class="text-dark hidden"><span id="searchTermSpan"></span></h5>
         <div class="border border-bottom-1 border-left-1 border-top-1 px-2 limit-height" style="border-radius: 10px;">
-          {{#each post}}
-            {{> posts/latest-block}}
-          {{/each}}
+          <div id="results">
+            {{#each post}}
+              {{> posts/latest-block}}
+            {{/each}}
+          </div>
         </div>
-      </div> <!-- END OF CURRENT BLOCK -->
+      </div> <!-- END OF CURRENT POSTS (DEFAULT) BLOCK -->
+    
     </div> <!-- END OF 2ND COL/POST DISPLAY -->
   </div> <!-- END OF ROW -->
 </div> <!-- END OF CONTAINER -->
