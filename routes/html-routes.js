@@ -31,7 +31,8 @@ module.exports = function(app) {
   // const hbsObject = [];
   app.get("/members", isAuthenticated, (req, res) => {
     db.Post.findAll({
-      order: [["createdAt", "DESC"]]
+      order: [["createdAt", "DESC"]],
+      include: [db.User]
     }).then((data) => {
       console.log("data :" + data);
       res.render("dashboard", {

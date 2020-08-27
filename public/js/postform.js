@@ -13,7 +13,7 @@ $(document).ready(function() {
   function handleFormSubmit(event) {
     event.preventDefault();
     let newPost = {
-      user_id: "1",
+      user_id: $("#member-id").text(),
       title: titleInput.val(),
       body: bodyInput.val(),
       link: linkInput.val(),
