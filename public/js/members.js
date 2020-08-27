@@ -3,6 +3,9 @@ $(document).ready(() => {
   // and updates the HTML on the page
   $.get("/api/user_data").then((data) => {
     $(".member-name").text(data.first);
+    $(".member-avatar").html(
+      `<img src="https://avatars.dicebear.com/api/bottts/${data.id}.svg" width="40px" height="100%" class="avatar-pic" />`
+    );
   });
 
   $("input[name=filterChoices]").on("change", () => {
@@ -127,9 +130,7 @@ $(document).ready(() => {
   $("#district-filter-button").on("click", () => {
     event.preventDefault();
     let districtName = $("#districtFilterInput").val();
-    $("#districtNameSpan").text(
-      `Results for: "${districtName}" School District`
-    );
+    $("#districtNameSpan").text(`Results for: "${districtName}" School District`);
     $("#searchResults").addClass("hidden");
     $("#categoryFilterResults").addClass("hidden");
     $("#current").addClass("hidden");
