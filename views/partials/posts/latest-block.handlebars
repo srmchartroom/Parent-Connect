@@ -1,12 +1,11 @@
 <div id="latestResults" class="text-left mb-4 px-2">
-	<img class="avatar-pic" src="https://avatars.dicebear.com/api/bottts/{{dataValues.UserId}}.svg" width="30px" height="100%" />
-	<a class="btn btn-link" data-toggle="collapse" href="#id{{dataValues.id}}" role="button" aria-expanded="false" aria-controls="{{id}}">
+	<img class="avatar-pic" src="https://avatars.dicebear.com/api/bottts/{{dataValues.UserId}}.svg" width="30px" height="100%" /></a><a class="btn btn-link float-right" data-toggle="modal" data-target="#m{{dataValues.id}}"><i class="fas fa-external-link-alt"></i></a><br>
+	<a class="result-title" data-toggle="collapse" href="#id{{dataValues.id}}" role="button" aria-expanded="false" aria-controls="{{id}}">
 		<strong>{{dataValues.title}}</strong>
-	</a> 
-	<a class="btn btn-link" data-toggle="modal" data-target="#m{{dataValues.id}}"><i class="fas fa-external-link-alt"></i></a>
+	
 	<br>
 	<span class="small pl-2">{{dataValues.createdAt}}</span><br>
-	<span class="small pl-2">Category: </span><span class="badge badge-light">{{dataValues.category}}</span> | <span class="small"></span>Parent Poster: {{dataValues.UserId}}<span class="badge badge-light">{{dataValues.first}} {{dataValues.last}}</span> <br>
+	<span class="small pl-2">Category: </span><span class="badge badge-light">{{dataValues.category}}</span> | <span class="small">Parent Poster:</a></span><span class="badge badge-light">{{User.dataValues.first}} {{User.dataValues.last}}</span> <br>
 	<span class="badge badge-light">{{dataValues.grade}}</span>&nbsp;<span class="badge badge-light">{{dataValues.school}}</span>&nbsp;<span class="badge badge-light">{{dataValues.district}}</span>
 	<div class="collapse" id="id{{dataValues.id}}">
 		<div class="card card-body">
@@ -33,7 +32,13 @@
 			<span class="small">Category: </span><span class="badge badge-light">{{dataValues.category}}</span>&nbsp;<span class="badge badge-light">{{dataValues.grade}}</span>&nbsp;<span class="badge badge-light">{{dataValues.school}}</span>&nbsp;<span class="badge badge-light">{{dataValues.district}}</span>
 			<hr>
 		</div>
+		<br>
         {{dataValues.body}}
+		<br>
+		<br>
+      	{{{dataValues.linkframe}}}<br>
+      	<span class="small">{{dataValues.link}}</span>
+      	<br>
       </div>
     </div>
   </div>

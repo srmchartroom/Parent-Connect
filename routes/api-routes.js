@@ -86,7 +86,9 @@ module.exports = function(app) {
   });
 
   app.get("/api/posts-all", (req, res) => {
-    db.Post.findAll({}).then((postsDB) => {
+    db.Post.findAll({
+      order: [["createdAt", "DESC"]]
+    }).then((postsDB) => {
       res.json({ postsDB });
     });
   });
@@ -109,6 +111,7 @@ module.exports = function(app) {
           }
         ]
       },
+      order: [["createdAt", "DESC"]],
       include: [db.User]
     }).then(function(dbPost) {
       res.json(dbPost);
@@ -121,6 +124,7 @@ module.exports = function(app) {
       where: {
         UserId: req.params.user
       },
+      order: [["createdAt", "DESC"]],
       include: [db.User]
     }).then(function(dbPost) {
       res.json(dbPost);
@@ -132,6 +136,7 @@ module.exports = function(app) {
       where: {
         district: req.params.district
       },
+      order: [["createdAt", "DESC"]],
       include: [db.User]
     }).then(function(dbPost) {
       res.json(dbPost);
@@ -143,6 +148,7 @@ module.exports = function(app) {
       where: {
         school: req.params.school
       },
+      order: [["createdAt", "DESC"]],
       include: [db.User]
     }).then(function(dbPost) {
       res.json(dbPost);
@@ -154,6 +160,7 @@ module.exports = function(app) {
       where: {
         grade: req.params.grade
       },
+      order: [["createdAt", "DESC"]],
       include: [db.User]
     }).then(function(dbPost) {
       res.json(dbPost);
@@ -165,6 +172,7 @@ module.exports = function(app) {
       where: {
         category: req.params.category
       },
+      order: [["createdAt", "DESC"]],
       include: [db.User]
     }).then(function(dbPost) {
       res.json(dbPost);
