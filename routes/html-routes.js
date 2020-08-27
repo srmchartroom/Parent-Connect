@@ -13,7 +13,7 @@ module.exports = function(app) {
       res.redirect("/members");
     }
     // res.sendFile(path.join(__dirname, "../public/signup.html"));
-    res.render("signup");
+    res.render("login");
   });
 
   app.get("/login", (req, res) => {
@@ -30,11 +30,11 @@ module.exports = function(app) {
   // const hbsObject = [];
   app.get("/members", isAuthenticated, (req, res) => {
     db.Post.findAll({
-      order: [["createdAt", "DESC"]]
+      order: [["createdAt", "DESC"]],
     }).then((data) => {
       console.log("data :" + data);
       res.render("dashboard", {
-        post: data
+        post: data,
       });
     });
   });
