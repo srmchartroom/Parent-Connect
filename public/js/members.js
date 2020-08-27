@@ -57,16 +57,66 @@ $(document).ready(() => {
     results.forEach((post) => {
       $("#results").append(`
         <div class="text-left mb-4 px-2">
-          <i class="fas fa-sim-card text-secondary"></i><a class="btn btn-link" data-toggle="collapse" href="#id${post.id}" role="button" aria-expanded="false" aria-controls="${post.id}">
-		        <strong>${post.title}</strong>
-	        </a><br>
-	        <span class="small pl-2">${post.createdAt}</span> | <span class="small pl-2">${post.category}</span><br>
-	        <span class="badge badge-light">Grade: ${post.grade}</span>&nbsp;<span class="badge badge-light">${post.school}</span>&nbsp;<span class="badge badge-light">${post.district}</span>
-	        <div class="collapse" id="id${post.id}">
-		        <div class="card card-body">
-			        ${post.body}
-		        </div>
-	        </div>
+          <img class="avatar-pic" src="https://avatars.dicebear.com/api/bottts/${
+            post.UserId
+          }}.svg" width="30px" height="100%" />
+          <a class="btn btn-link" data-toggle="collapse" href="#id${
+            post.id
+          }" role="button" aria-expanded="false" aria-controls="id${post.id}">
+            <strong>${post.title}</strong>
+          </a> 
+          <a class="btn btn-link" data-toggle="modal" data-target="#m${
+            post.id
+          }"><i class="fas fa-external-link-alt"></i></a>
+          <br>
+          <span class="small pl-2">${post.createdAt}</span><br>
+          <span class="small pl-2">Category: </span><span class="badge badge-light">${
+            post.category
+          }</span> | <span class="small"></span>Parent Poster: ${post.UserId}<span class="badge badge-light">${
+        post.User.first
+      } ${post.User.last}</span> <br>
+          <span class="badge badge-light">${post.grade ||
+            ""}</span>&nbsp;<span class="badge badge-light">${post.school ||
+        ""}</span>&nbsp;<span class="badge badge-light">${post.district || ""}</span>
+          <div class="collapse" id="id${post.id}">
+            <div class="card card-body">
+              ${post.body}
+
+              <span class="small"><em>Open post (<i class="fas fa-external-link-alt"></i>) to view accompanying post links if available.</span>
+            </div>
+          </div>
+        <!-- Modal -->
+        <div class="modal fade" id="m${post.id}" tabindex="-1" aria-labelledby="m${post.id}Label" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">  
+              <div class="modal-body">
+                <div class="post-top">
+                  <h5 class="modal-title" id="m${post.UserId}Label">${post.title}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <span class="small pl-2">${post.createdAt}</span><br>
+                  <img class="avatar-pic" src="https://avatars.dicebear.com/api/bottts/${
+                    post.UserId
+                  }.svg" width="30px" height="100%" /> <span class="small">Parent Poster: </span><span class="badge badge-light">${
+        post.UserId
+      } ${post.User.first} ${post.User.last}</span>
+                  <hr>
+                  <span class="small">Category: </span><span class="badge badge-light">${
+                    post.category
+                  }</span>&nbsp;<span class="badge badge-light">${post.grade ||
+        ""}</span>&nbsp;<span class="badge badge-light">${post.school ||
+        ""}</span>&nbsp;<span class="badge badge-light">${post.district || ""}</span>
+                  <hr>
+                </div>
+                ${post.body}
+                <br>
+                ${post.link}
+                ${post.linkframe}
+              </div>
+            </div>
+          </div>
+        </div>
         </div>`);
     });
   }

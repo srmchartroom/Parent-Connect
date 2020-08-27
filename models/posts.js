@@ -11,6 +11,9 @@ module.exports = function(sequelize, DataTypes) {
     link: {
       type: DataTypes.STRING
     },
+    linkframe: {
+      type: DataTypes.TEXT
+    },
     category: {
       type: DataTypes.STRING,
       allowNull: false
