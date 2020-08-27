@@ -10,7 +10,7 @@ module.exports = function(app) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
-      id: req.user.id,
+      id: req.user.id
     });
   });
 
@@ -22,7 +22,7 @@ module.exports = function(app) {
       first: req.body.first,
       last: req.body.last,
       email: req.body.email,
-      password: req.body.password,
+      password: req.body.password
     })
       .then(() => {
         res.redirect(307, "/api/login");
@@ -50,7 +50,7 @@ module.exports = function(app) {
         first: req.user.first,
         last: req.user.last,
         email: req.user.email,
-        id: req.user.id,
+        id: req.user.id
       });
     }
   });
@@ -64,7 +64,7 @@ module.exports = function(app) {
       category: req.body.category,
       district: req.body.district,
       school: req.body.school,
-      grade: req.body.grade,
+      grade: req.body.grade
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -84,16 +84,17 @@ module.exports = function(app) {
         [Op.or]: [
           {
             title: {
-              [Op.substring]: string,
-            },
+              [Op.substring]: string
+            }
           },
           {
             body: {
-              [Op.substring]: string,
-            },
-          },
-        ],
+              [Op.substring]: string
+            }
+          }
+        ]
       },
+      include: [db.User]
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -103,8 +104,9 @@ module.exports = function(app) {
     var user_id = parseInt(req.body.user_id);
     db.Post.findAll({
       where: {
-        UserId: req.params.user,
+        UserId: req.params.user
       },
+      include: [db.User]
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -113,8 +115,9 @@ module.exports = function(app) {
   app.get("/api/posts-district/:district", (req, res) => {
     db.Post.findAll({
       where: {
-        district: req.params.district,
+        district: req.params.district
       },
+      include: [db.User]
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -123,8 +126,9 @@ module.exports = function(app) {
   app.get("/api/posts-school/:school", (req, res) => {
     db.Post.findAll({
       where: {
-        school: req.params.school,
+        school: req.params.school
       },
+      include: [db.User]
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -133,8 +137,9 @@ module.exports = function(app) {
   app.get("/api/posts-grade/:grade", (req, res) => {
     db.Post.findAll({
       where: {
-        grade: req.params.grade,
+        grade: req.params.grade
       },
+      include: [db.User]
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -143,8 +148,9 @@ module.exports = function(app) {
   app.get("/api/posts-category/:category", (req, res) => {
     db.Post.findAll({
       where: {
-        category: req.params.category,
+        category: req.params.category
       },
+      include: [db.User]
     }).then(function(dbPost) {
       res.json(dbPost);
     });
