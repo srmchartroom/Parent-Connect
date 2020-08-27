@@ -5,12 +5,6 @@ $(document).ready(() => {
     $(".member-name").text(data.first);
   });
 
-  // $.get("/api/posts-all").then((data) => {
-  //   console.log(data);
-  //   return { post: data };
-  // });
-  // document.querySelector("#filterChoices1")
-
   $("input[name=filterChoices]").on("change", () => {
     if ($("input[name=filterChoices]:checked").val() === "option1") {
       $("#byParent").removeClass("hidden");
@@ -54,6 +48,26 @@ $(document).ready(() => {
     }
   });
 
+  function renderReply(reply) {
+    let results = reply;
+    $("#results").empty();
+    results.forEach((post) => {
+      $("#results").append(`
+        <div class="text-left mb-4 px-2">
+          <i class="fas fa-sim-card text-secondary"></i><a class="btn btn-link" data-toggle="collapse" href="#id${post.id}" role="button" aria-expanded="false" aria-controls="${post.id}">
+		        <strong>${post.title}</strong>
+	        </a><br>
+	        <span class="small pl-2">${post.createdAt}</span> | <span class="small pl-2">${post.category}</span><br>
+	        <span class="badge badge-light">Grade: ${post.grade}</span>&nbsp;<span class="badge badge-light">${post.school}</span>&nbsp;<span class="badge badge-light">${post.district}</span>
+	        <div class="collapse" id="id${post.id}">
+		        <div class="card card-body">
+			        ${post.body}
+		        </div>
+	        </div>
+        </div>`);
+    });
+  }
+
   // On click/submit of the By Parent Filter Form, Add the Parent dynamically to the results title,
   // show the parent results block and hide all other blocks
   $("#user-filter-button").on("click", () => {
@@ -68,23 +82,7 @@ $(document).ready(() => {
     $("#schoolFilterResults").addClass("hidden");
     $("#districtFilterResults").addClass("hidden");
     $.ajax(`/api/posts-user/${parentName}`).done((reply) => {
-      let results = reply;
-      $("#results").empty();
-      results.forEach((post) => {
-        $("#results").append(`
-        <div class="text-left mb-4 px-2">
-          <i class="fas fa-sim-card text-secondary"></i><a class="btn btn-link" data-toggle="collapse" href="#id${post.id}" role="button" aria-expanded="false" aria-controls="${post.id}">
-		        <strong>${post.title}</strong>
-	        </a><br>
-	        <span class="small pl-2">${post.createdAt}</span> | <span class="small pl-2">${post.category}</span><br>
-	        <span class="badge badge-light">Grade: ${post.grade}</span>&nbsp;<span class="badge badge-light">${post.school}</span>&nbsp;<span class="badge badge-light">${post.district}</span>
-	        <div class="collapse" id="id${post.id}">
-		        <div class="card card-body">
-			        ${post.body}
-		        </div>
-	        </div>
-        </div>`);
-      });
+      renderReply(reply);
     });
   });
 
@@ -102,23 +100,7 @@ $(document).ready(() => {
     $("#schoolFilterResults").addClass("hidden");
     $("#districtFilterResults").addClass("hidden");
     $.ajax(`/api/posts-grade/${gradeSelection}`).done((reply) => {
-      let results = reply;
-      $("#results").empty();
-      results.forEach((post) => {
-        $("#results").append(`
-        <div class="text-left mb-4 px-2">
-          <i class="fas fa-sim-card text-secondary"></i><a class="btn btn-link" data-toggle="collapse" href="#id${post.id}" role="button" aria-expanded="false" aria-controls="${post.id}">
-		        <strong>${post.title}</strong>
-	        </a><br>
-	        <span class="small pl-2">${post.createdAt}</span> | <span class="small pl-2">${post.category}</span><br>
-	        <span class="badge badge-light">Grade: ${post.grade}</span>&nbsp;<span class="badge badge-light">${post.school}</span>&nbsp;<span class="badge badge-light">${post.district}</span>
-	        <div class="collapse" id="id${post.id}">
-		        <div class="card card-body">
-			        ${post.body}
-		        </div>
-	        </div>
-        </div>`);
-      });
+      renderReply(reply);
     });
   });
 
@@ -136,23 +118,7 @@ $(document).ready(() => {
     $("#schoolFilterResults").removeClass("hidden");
     $("#districtFilterResults").addClass("hidden");
     $.ajax(`/api/posts-school/${schoolName}`).done((reply) => {
-      let results = reply;
-      $("#results").empty();
-      results.forEach((post) => {
-        $("#results").append(`
-        <div class="text-left mb-4 px-2">
-          <i class="fas fa-sim-card text-secondary"></i><a class="btn btn-link" data-toggle="collapse" href="#id${post.id}" role="button" aria-expanded="false" aria-controls="${post.id}">
-		        <strong>${post.title}</strong>
-	        </a><br>
-	        <span class="small pl-2">${post.createdAt}</span> | <span class="small pl-2">${post.category}</span><br>
-	        <span class="badge badge-light">Grade: ${post.grade}</span>&nbsp;<span class="badge badge-light">${post.school}</span>&nbsp;<span class="badge badge-light">${post.district}</span>
-	        <div class="collapse" id="id${post.id}">
-		        <div class="card card-body">
-			        ${post.body}
-		        </div>
-	        </div>
-        </div>`);
-      });
+      renderReply(reply);
     });
   });
 
@@ -161,7 +127,9 @@ $(document).ready(() => {
   $("#district-filter-button").on("click", () => {
     event.preventDefault();
     let districtName = $("#districtFilterInput").val();
-    $("#districtNameSpan").text(`Results for: "${districtName}" School District`);
+    $("#districtNameSpan").text(
+      `Results for: "${districtName}" School District`
+    );
     $("#searchResults").addClass("hidden");
     $("#categoryFilterResults").addClass("hidden");
     $("#current").addClass("hidden");
@@ -170,31 +138,16 @@ $(document).ready(() => {
     $("#schoolFilterResults").addClass("hidden");
     $("#districtFilterResults").removeClass("hidden");
     $.ajax(`/api/posts-district/${districtName}`).done((reply) => {
-      let results = reply;
-      $("#results").empty();
-      results.forEach((post) => {
-        $("#results").append(`
-        <div class="text-left mb-4 px-2">
-          <i class="fas fa-sim-card text-secondary"></i><a class="btn btn-link" data-toggle="collapse" href="#id${post.id}" role="button" aria-expanded="false" aria-controls="${post.id}">
-		        <strong>${post.title}</strong>
-	        </a><br>
-	        <span class="small pl-2">${post.createdAt}</span> | <span class="small pl-2">${post.category}</span><br>
-	        <span class="badge badge-light">Grade: ${post.grade}</span>&nbsp;<span class="badge badge-light">${post.school}</span>&nbsp;<span class="badge badge-light">${post.district}</span>
-	        <div class="collapse" id="id${post.id}">
-		        <div class="card card-body">
-			        ${post.body}
-		        </div>
-	        </div>
-        </div>`);
-      });
+      renderReply(reply);
     });
   });
 
   // On submission of the search form, add terms search dynamically the results title,
   // show search results block and hide all other blocks
-  $("searchForm").on("submit", () => {
+  $("#searchForm").on("submit", () => {
     event.preventDefault();
     let searchTerm = $("#searchInput").val();
+    console.log(searchTerm);
     $("#searchTermSpan").text(`You searched for: "${searchTerm}"`);
     $("#searchResults").removeClass("hidden");
     $("#categoryFilterResults").addClass("hidden");
@@ -203,6 +156,9 @@ $(document).ready(() => {
     $("#gradeFilterResults").addClass("hidden");
     $("#schoolFilterResults").addClass("hidden");
     $("#districtFilterResults").addClass("hidden");
+    $.ajax(`/api/posts/${searchTerm}`).done((reply) => {
+      renderReply(reply);
+    });
   });
 
   // On Change of the Category Selection, Add the name dynamically to the results title,
@@ -218,29 +174,8 @@ $(document).ready(() => {
     $("#schoolFilterResults").addClass("hidden");
     $("#districtFilterResults").addClass("hidden");
     $("#searchResults").addClass("hidden");
-    // $.get(`/api/posts-category/${catName}`).then((data) => {
-    //   console.log("Data: " + data);
-    //   return { post: data };
-    // });
-    // location.reload();
     $.ajax(`/api/posts-category/${catName}`).done((reply) => {
-      let results = reply;
-      $("#results").empty();
-      results.forEach((post) => {
-        $("#results").append(`
-        <div class="text-left mb-4 px-2">
-          <i class="fas fa-sim-card text-secondary"></i><a class="btn btn-link" data-toggle="collapse" href="#id${post.id}" role="button" aria-expanded="false" aria-controls="${post.id}">
-		        <strong>${post.title}</strong>
-	        </a><br>
-	        <span class="small pl-2">${post.createdAt}</span> | <span class="small pl-2">${post.category}</span><br>
-	        <span class="badge badge-light">Grade: ${post.grade}</span>&nbsp;<span class="badge badge-light">${post.school}</span>&nbsp;<span class="badge badge-light">${post.district}</span>
-	        <div class="collapse" id="id${post.id}">
-		        <div class="card card-body">
-			        ${post.body}
-		        </div>
-	        </div>
-        </div>`);
-      });
+      renderReply(reply);
     });
   });
 });
