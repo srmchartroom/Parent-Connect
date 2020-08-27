@@ -2,6 +2,13 @@
   display: none;
 }
 
+.avatar-pic {
+  background-color: #bce0fd;
+  border: 3px solid #2699fb;
+  border-radius: 25px;
+  padding: 2px;
+}
+
 p {
   text-align: center;
   font: normal normal normal 13px/20px Montserrat;
