@@ -1,6 +1,8 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+// Requiring Library for video embedding
+const embed = require("embed-video");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -56,11 +58,24 @@ module.exports = function(app) {
   });
 
   app.post("/api/posts", (req, res) => {
+    let linkframe = req.body.link;
+    let yt = "youtube";
+    let vim = "vimeo";
+    if (req.body.link.includes(yt)) {
+      linkframe = embed(req.body.link);
+    } else if (req.body.link.includes(vim)) {
+      linkframe = embed(req.body.link);
+    } else if (req.body.link === null) {
+      linkframe = "";
+    } else {
+      linkframe = req.body.link;
+    }
     db.Post.create({
       UserId: req.body.user_id,
       title: req.body.title,
       body: req.body.body,
       link: req.body.link,
+      linkframe: linkframe,
       category: req.body.category,
       district: req.body.district,
       school: req.body.school,

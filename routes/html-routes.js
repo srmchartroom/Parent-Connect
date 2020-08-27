@@ -5,6 +5,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 const db = require("../models");
 const express = require("express");
 const router = express.Router();
+const embed = require("embed-video");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
@@ -30,11 +31,11 @@ module.exports = function(app) {
   // const hbsObject = [];
   app.get("/members", isAuthenticated, (req, res) => {
     db.Post.findAll({
-      order: [["createdAt", "DESC"]],
+      order: [["createdAt", "DESC"]]
     }).then((data) => {
       console.log("data :" + data);
       res.render("dashboard", {
-        post: data,
+        post: data
       });
     });
   });
