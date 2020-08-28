@@ -55,12 +55,6 @@ label {
   vertical-align: super;
 }
 
-/* 
-form.signup,
-form.login {
-  margin-top: 50px;
-} */
-
 .btn-signin {
   background-color: #233975;
   border-color: #233975;
@@ -70,6 +64,19 @@ form.login {
   font: normal normal bold 12px/15px Montserrat;
   letter-spacing: 0.6px;
   color: #ffffff;
+  text-transform: uppercase;
+  opacity: 1;
+}
+
+.btn-signin:hover {
+  background-color: #233975;
+  border-color: #233975;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  font: normal normal bold 12px/15px Montserrat;
+  letter-spacing: 0.6px;
+  color: #bce0fd;
   text-transform: uppercase;
   opacity: 1;
 }
