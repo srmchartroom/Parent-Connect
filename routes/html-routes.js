@@ -17,6 +17,15 @@ module.exports = function(app) {
     res.render("login");
   });
 
+  app.get("/signup", (req, res) => {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/members");
+    }
+    // res.sendFile(path.join(__dirname, "../public/signup.html"));
+    res.render("signup");
+  });
+
   app.get("/login", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
@@ -32,11 +41,11 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, (req, res) => {
     db.Post.findAll({
       order: [["createdAt", "DESC"]],
-      include: [db.User]
+      include: [db.User],
     }).then((data) => {
       console.log("data :" + data);
       res.render("dashboard", {
-        post: data
+        post: data,
       });
     });
   });
