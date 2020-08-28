@@ -1,63 +1,83 @@
 <!-- Top Navigation header -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-blue">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerLight" aria-controls="navbarTogglerLight" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerLight"
+    aria-controls="navbarTogglerLight" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <!-- Logo and parent connect elements -->
-  <a class="navbar-brand" href="/members"><img src="/assets/PC-10.png" width="50px" height="100%" style=" margin-left: 20px; margin-right: 20px;" /> <span class="logo parents">parents</span> <span class="logo connect">connect</span></a>
+  <a class="navbar-brand" href="/members"><img src="/assets/PC-10.png" width="50px" height="100%"
+      style=" margin-left: 20px; margin-right: 20px;" /> <span class="logo parents">parents</span> <span
+      class="logo connect">connect</span></a>
   <!-- Collapsible nav elements -->
   <div class="collapse navbar-collapse" id="navbarTogglerDark">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <!-- Logout Icon -->
       <li class="nav-item main-nav mx-2 my-0">
-        <a class="nav-link text-center" href="/logout" data-animation="true" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="fas fa-sign-out-alt fa-1x mt-2" style="font-size: 30px;"></i></a>
+        <a class="nav-link text-center" href="/logout" data-animation="true" data-toggle="tooltip"
+          data-placement="bottom" title="Logout"><i class="fas fa-sign-out-alt fa-1x mt-2"
+            style="font-size: 30px;"></i></a>
       </li>
       <!-- Refresh Icon -->
       <li class="nav-item main-nav mx-2"></li>
-        <a class="nav-link text-center" href="/members" data-animation="true" tabindex="-1" aria-disabled="true" data-toggle="tooltip" data-placement="bottom" title="Refresh Latest Posts"><i class="fas fa-sync-alt fa-1x mt-2" style="font-size: 30px;"></i></a>
+      <a class="nav-link text-center" href="/members" data-animation="true" tabindex="-1" aria-disabled="true"
+        data-toggle="tooltip" data-placement="bottom" title="Refresh Latest Posts"><i class="fas fa-sync-alt fa-1x mt-2"
+          style="font-size: 30px;"></i></a>
       </li>
       <!-- Member Profile Dynamic Avatar -->
       <li class="nav-item main-nav ml-4"></li>
-        <a id="member-avicon" class="nav-link text-center" href="#" data-animation="true" tabindex="-1" aria-disabled="true" data-toggle="tooltip" data-placement="bottom" title=""><span class="member-avatar text-center"></span></a>
+      <a id="member-avicon" class="nav-link text-center" href="#" data-animation="true" tabindex="-1"
+        aria-disabled="true" data-toggle="tooltip" data-placement="bottom" title=""><span
+          class="member-avatar text-center"></span></a>
       </li>
     </ul>
-    
+
   </div>
 </nav>
 
 <div class="container">
   <div class="row" width="100%">
-    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"> <!-- 1ST COL/OPTIONS -->
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+      <!-- 1ST COL/OPTIONS -->
       <h2 class="mt-5">Welcome <span class="member-name"></span>!<span id="member-id" class="hidden"></span></h2>
       <p class="text-left">Let's Get Connecting!</p>
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Search Posts</a>
-          <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Create a Post</a>
-          <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Filter Posts</a>
+          <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+            aria-controls="nav-home" aria-selected="true">Search Posts</a>
+          <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+            aria-controls="nav-profile" aria-selected="false">Create a Post</a>
+          <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+            aria-controls="nav-contact" aria-selected="false">Filter Posts</a>
         </div>
       </nav>
-      <div class="tab-content" id="nav-tabContent">
+      <div class="tab-content mb-5 pb-5" id="nav-tabContent">
         <!-- Tab content for the Search Tab -->
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
           <form id="searchForm" class="my-5" width="100%">
-            <input id="searchInput" class="form-control mr-sm-2 pr-0" type="search" placeholder="What would you like to find?" aria-label="Search" width="100%"><br>
+            <input id="searchInput" class="form-control mr-sm-2 pr-0" type="search"
+              placeholder="What would you like to find?" aria-label="Search" width="100%"><br>
             <button class="btn btn-signin my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div> <!-- End of search tab content -->
         <!-- Tab content for the Create a Post Tab -->
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-          <div class="row mt-4 px-3"> <!-- form row -->
+          <div class="row mt-4 px-3">
+            <!-- form row -->
             <h5 class="px-3" style="text-decoration: underline;">Create a New Post:</h5>
             <hr>
-            <div class="col col-sm-12 mt-2"> <!-- form col -->
+            <div class="col col-sm-12 mt-2">
+              <!-- form col -->
               <form id="post_form">
-                <div class="form-group"> <!-- Post Title Input Field -->
-                  <label for="title">Title (of Post, Question, Issue, etc.): <span class="req">(*REQUIRED)</span></label>
+                <div class="form-group">
+                  <!-- Post Title Input Field -->
+                  <label for="title">Title (of Post, Question, Issue, etc.): <span
+                      class="req">(*REQUIRED)</span></label>
                   <input placeholder="Please enter a descriptive title." type="text" class="form-control" id="title" />
                 </div>
-                <div class="form-group"> <!-- Post Category DropDown Custom Selection -->
-                  <label for="category">Type of Post <span class="req">(*REQUIRED)</span><br><span class="small">Select from the drop-down below:</span></label>
+                <div class="form-group">
+                  <!-- Post Category DropDown Custom Selection -->
+                  <label for="category">Type of Post <span class="req">(*REQUIRED)</span><br><span class="small">Select
+                      from the drop-down below:</span></label>
                   <select class="custom-select" id="category">
                     <option value="resource">Resource(s)</option>
                     <option value="question">Question?</option>
@@ -68,18 +88,24 @@
                 </div>
                 <div class="form-group">
                   <label for="body">Enter your Post: <span class="req">(*REQUIRED)</span> </label>
-                  <textarea placeholder="Enter your Post (question, issue, resource, announcement, etc.) here. Feel free to add as much (or as little) detail as you like." class="form-control" rows="10" id="body"></textarea>
+                  <textarea
+                    placeholder="Enter your Post (question, issue, resource, announcement, etc.) here. Feel free to add as much (or as little) detail as you like."
+                    class="form-control" rows="10" id="body"></textarea>
                 </div>
                 <div class="form-group">
-                  <label for="district">City or County School District <br><span class="small">(optional, enter if desired or post pertains to it)</span></label>
+                  <label for="district">City or County School District <br><span class="small">(optional, enter if
+                      desired or post pertains to it)</span></label>
                   <input placeholder="(e.g. Wake County Schools)" class="form-control" rows="1" id="district"></input>
                 </div>
                 <div class="form-group">
-                  <label for="school">School Name <br><span class="small">(optional, enter if desired or post pertains to it)</span></label>
-                  <input placeholder="Wanahakalugi Primary Learning Center" class="form-control" rows="1" id="school"></input>
+                  <label for="school">School Name <br><span class="small">(optional, enter if desired or post pertains
+                      to it)</span></label>
+                  <input placeholder="Wanahakalugi Primary Learning Center" class="form-control" rows="1"
+                    id="school"></input>
                 </div>
                 <div class="form-group">
-                  <label for="category">Select Grade Level: <br><span class="small">(optional, enter if desired or post pertains to it)</span></label>
+                  <label for="category">Select Grade Level: <br><span class="small">(optional, enter if desired or post
+                      pertains to it)</span></label>
                   <select class="custom-select" id="grade">
                     <option value="K">Pre-K</option>
                     <option value="K">K</option>
@@ -98,104 +124,112 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="link">Link: <br><span class="small">(optional, enter if a link is available and pertains to your post)</span></label>
-                  <input placeholder="(e.g. https://www.youtube.com/great-video)" class="form-control" rows="1" id="link"></input>    
-                </div> 
+                  <label for="link">Link: <br><span class="small">(optional, enter if a link is available and pertains
+                      to your post)</span></label>
+                  <input placeholder="(e.g. https://www.youtube.com/great-video)" class="form-control" rows="1"
+                    id="link"></input>
+                </div>
                 <br>
-                <button type="submit" class="btn btn-signin submit">Submit</button>   
-              </form>    
+                <button type="submit" class="btn btn-signin submit">Submit</button>
+              </form>
             </div> <!-- End of form col -->
           </div> <!-- End of Form row -->
         </div> <!-- End of Create a Post Tab content -->
         <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-            <form id="filterSelections" class="pt-2">
-              <div id="filterSelectionsGroup" class="form-group">
-                <!--<div class="form-check mt-3">
+          <form id="filterSelections" class="pt-2">
+            <div id="filterSelectionsGroup" class="form-group">
+              <!--<div class="form-check mt-3">
                   <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices1" value="option1" checked>
                   <label class="form-check-label" for="filterChoices1">
                     By Parent
                   </label>
                 </div>-->
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices2" value="option2" checked>
-                  <label class="form-check-label" for="filterChoices2">
-                    By Type of Post
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices3" value="option3">
-                  <label class="form-check-label" for="filterChoices3">
-                    By Grade Level
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices4" value="option4">
-                  <label class="form-check-label" for="filterChoices4">
-                    By School
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices5" value="option5">
-                  <label class="form-check-label" for="filterChoices5">
-                    By School District
-                  </label>
-                </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices2" value="option2"
+                  checked>
+                <label class="form-check-label" for="filterChoices2">
+                  By Type of Post
+                </label>
               </div>
-            </form>
-            <form id="byCategory" class="my-5" width="100%">
-              <div class="form-group"> <!-- Post Category DropDown Custom Selection -->
-                  <label for="categoryFilterInput">Filter by Type of Post</label>
-                  <select class="custom-select" id="categoryFilterInput">
-                    <option value="Resource">Resource</option>
-                    <option value="Question">Question</option>
-                    <option value="Announcement">Announcement</option>
-                    <option value="Issue">Issue</option>
-                    <option value="General">General</option>
-                  </select>
-                </div>
-              <button id="category-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
-            </form>
-            <form id="byGrade" class="my-5 hidden" width="100%">
-              <div class="form-group">
-                  <label for="gradeFilterInput">Filter by Grade Level:</label>
-                  <select id="gradeFilterInput" class="custom-select" id="grade" width="100%">
-                    <option value="K">Pre-K</option>
-                    <option value="K">K</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                  </select>
-                </div>
-              <button id="grade-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
-            </form>
-            <form id="bySchool" class="my-5 hidden" width="100%">
-              <div class="form-group">
-                <label for="schoolFilterInput">Filter by School:</label>
-                <input id="schoolFilterInput" class="form-control mr-sm-2 pr-0" type="search" placeholder="Enter School to filter posts on" aria-label="Search" width="100%"><br>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices3" value="option3">
+                <label class="form-check-label" for="filterChoices3">
+                  By Grade Level
+                </label>
               </div>
-              <button id="school-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
-            </form>
-            <form id="byDistrict" class="my-5 hidden" width="100%">
-              <div class="form-group">
-                <label for="districtFilterInput">Filter by School District:</label>
-                <input id="districtFilterInput" class="form-control mr-sm-2 pr-0" type="search" placeholder="Enter School District to filter posts on" aria-label="Search" width="100%"><br>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices4" value="option4">
+                <label class="form-check-label" for="filterChoices4">
+                  By School
+                </label>
               </div>
-              <button id="district-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
-            </form>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="filterChoices" id="filterChoices5" value="option5">
+                <label class="form-check-label" for="filterChoices5">
+                  By School District
+                </label>
+              </div>
+            </div>
+          </form>
+          <form id="byCategory" class="my-5" width="100%">
+            <div class="form-group">
+              <!-- Post Category DropDown Custom Selection -->
+              <label for="categoryFilterInput">Filter by Type of Post</label>
+              <select class="custom-select" id="categoryFilterInput">
+                <option value="Resource">Resource</option>
+                <option value="Question">Question</option>
+                <option value="Announcement">Announcement</option>
+                <option value="Issue">Issue</option>
+                <option value="General">General</option>
+              </select>
+            </div>
+            <button id="category-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
+          </form>
+          <form id="byGrade" class="my-5 hidden" width="100%">
+            <div class="form-group">
+              <label for="gradeFilterInput">Filter by Grade Level:</label>
+              <select id="gradeFilterInput" class="custom-select" id="grade" width="100%">
+                <option value="K">Pre-K</option>
+                <option value="K">K</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+            </div>
+            <button id="grade-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
+          </form>
+          <form id="bySchool" class="my-5 hidden" width="100%">
+            <div class="form-group">
+              <label for="schoolFilterInput">Filter by School:</label>
+              <input id="schoolFilterInput" class="form-control mr-sm-2 pr-0" type="search"
+                placeholder="Enter School to filter posts on" aria-label="Search" width="100%"><br>
+            </div>
+            <button id="school-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
+          </form>
+          <form id="byDistrict" class="my-5 hidden" width="100%">
+            <div class="form-group">
+              <label for="districtFilterInput">Filter by School District:</label>
+              <input id="districtFilterInput" class="form-control mr-sm-2 pr-0" type="search"
+                placeholder="Enter School District to filter posts on" aria-label="Search" width="100%"><br>
+            </div>
+            <button id="district-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
+          </form>
         </div>
       </div> <!-- End of all Tab contents -->
     </div> <!-- End of 1ST COL/OPTIONS -->
-    <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 col-xs-12 mt-5 pt-5 px-md-5"> <!-- 2ND COL/POST DISPLAY -->
-      <div class="pt-0"> <!-- CURRENT POSTS RESULTS (DEFAULT) -->
+    <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 col-xs-12 mt-5 pt-5 px-md-5">
+      <!-- 2ND COL/POST DISPLAY -->
+      <div class="pt-0">
+        <!-- CURRENT POSTS RESULTS (DEFAULT) -->
         <h5 id="current" class="text-dark">Latest Posts</h5>
         <h5 id="categoryFilterResults" class="text-dark hidden"><span id="categoryNameSpan"></span></h5>
         <h5 id="parentFilterResults" class="text-dark hidden"><span id="parentNameSpan"></span></h5>
@@ -206,12 +240,12 @@
         <div class="border border-bottom-1 border-left-1 border-top-1 px-2 limit-height" style="border-radius: 10px;">
           <div id="results" class="pt-3">
             {{#each post}}
-              {{> posts/latest-block}}
+            {{> posts/latest-block}}
             {{/each}}
           </div>
         </div>
       </div> <!-- END OF CURRENT POSTS (DEFAULT) BLOCK -->
-    
+
     </div> <!-- END OF 2ND COL/POST DISPLAY -->
   </div> <!-- END OF ROW -->
 </div> <!-- END OF CONTAINER -->
@@ -221,5 +255,3 @@
 <script type="text/javascript" src="/js/result.js"></script>
 <script type="text/javascript" src="/js/members.js"></script>
 <script type="text/javascript" src="/js/postform.js"></script>
-
-

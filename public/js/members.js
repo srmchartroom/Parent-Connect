@@ -1,11 +1,11 @@
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
-  $('[data-toggle="tooltip"]').tooltip();
+  $("[data-toggle='tooltip']").tooltip();
 
-  let currentUser = "";
+  // let currentUser = "";
 
-  $.get("/api/user_data").then((data) => {
+  $.get("/api/user_data").then(data => {
     currentUser = data;
     $("#member-id").text(data.id);
     console.log("data: ", data);
@@ -63,9 +63,9 @@ $(document).ready(() => {
   });
 
   function renderReply(reply) {
-    let results = reply;
+    const results = reply;
     $("#results").empty();
-    results.forEach((post) => {
+    results.forEach(post => {
       $("#results").append(generateReplies(post));
     });
   }
@@ -74,7 +74,7 @@ $(document).ready(() => {
   // show the parent results block and hide all other blocks
   $("#user-filter-button").on("click", () => {
     event.preventDefault();
-    let parentName = $("#userFilterInput").val();
+    const parentName = $("#userFilterInput").val();
     $("#parentNameSpan").text(`Posts from ${parentName}`);
     $("#searchResults").removeClass("hidden");
     $("#categoryFilterResults").addClass("hidden");
@@ -83,7 +83,7 @@ $(document).ready(() => {
     $("#gradeFilterResults").addClass("hidden");
     $("#schoolFilterResults").addClass("hidden");
     $("#districtFilterResults").addClass("hidden");
-    $.ajax(`/api/posts-user/${parentName}`).done((reply) => {
+    $.ajax(`/api/posts-user/${parentName}`).done(reply => {
       renderReply(reply);
     });
   });
@@ -92,7 +92,7 @@ $(document).ready(() => {
   // show the grade results block and hide all other blocks
   $("#grade-filter-button").on("click", () => {
     event.preventDefault();
-    let gradeSelection = $("#gradeFilterInput").val();
+    const gradeSelection = $("#gradeFilterInput").val();
     $("#gradeSelectionSpan").text(`Results for Grade: ${gradeSelection}`);
     $("#searchResults").addClass("hidden");
     $("#categoryFilterResults").addClass("hidden");
@@ -101,7 +101,7 @@ $(document).ready(() => {
     $("#gradeFilterResults").removeClass("hidden");
     $("#schoolFilterResults").addClass("hidden");
     $("#districtFilterResults").addClass("hidden");
-    $.ajax(`/api/posts-grade/${gradeSelection}`).done((reply) => {
+    $.ajax(`/api/posts-grade/${gradeSelection}`).done(reply => {
       renderReply(reply);
     });
   });
@@ -110,7 +110,7 @@ $(document).ready(() => {
   // show the school results block and hide all other blocks
   $("#school-filter-button").on("click", () => {
     event.preventDefault();
-    let schoolName = $("#schoolFilterInput").val();
+    const schoolName = $("#schoolFilterInput").val();
     $("#schoolNameSpan").text(`Results for: "${schoolName}"`);
     $("#searchResults").addClass("hidden");
     $("#categoryFilterResults").addClass("hidden");
@@ -119,7 +119,7 @@ $(document).ready(() => {
     $("#gradeFilterResults").addClass("hidden");
     $("#schoolFilterResults").removeClass("hidden");
     $("#districtFilterResults").addClass("hidden");
-    $.ajax(`/api/posts-school/${schoolName}`).done((reply) => {
+    $.ajax(`/api/posts-school/${schoolName}`).done(reply => {
       renderReply(reply);
     });
   });
@@ -128,8 +128,10 @@ $(document).ready(() => {
   // show the district results block and hide all other blocks
   $("#district-filter-button").on("click", () => {
     event.preventDefault();
-    let districtName = $("#districtFilterInput").val();
-    $("#districtNameSpan").text(`Results for: "${districtName}" School District`);
+    const districtName = $("#districtFilterInput").val();
+    $("#districtNameSpan").text(`
+    Results for: "${districtName}" School District
+    `);
     $("#searchResults").addClass("hidden");
     $("#categoryFilterResults").addClass("hidden");
     $("#current").addClass("hidden");
@@ -137,7 +139,7 @@ $(document).ready(() => {
     $("#gradeFilterResults").addClass("hidden");
     $("#schoolFilterResults").addClass("hidden");
     $("#districtFilterResults").removeClass("hidden");
-    $.ajax(`/api/posts-district/${districtName}`).done((reply) => {
+    $.ajax(`/api/posts-district/${districtName}`).done(reply => {
       renderReply(reply);
     });
   });
@@ -146,7 +148,7 @@ $(document).ready(() => {
   // show search results block and hide all other blocks
   $("#searchForm").on("submit", () => {
     event.preventDefault();
-    let searchTerm = $("#searchInput").val();
+    const searchTerm = $("#searchInput").val();
     console.log(searchTerm);
     $("#searchTermSpan").text(`You searched for: "${searchTerm}"`);
     $("#searchResults").removeClass("hidden");
@@ -156,7 +158,7 @@ $(document).ready(() => {
     $("#gradeFilterResults").addClass("hidden");
     $("#schoolFilterResults").addClass("hidden");
     $("#districtFilterResults").addClass("hidden");
-    $.ajax(`/api/posts/${searchTerm}`).done((reply) => {
+    $.ajax(`/api/posts/${searchTerm}`).done(reply => {
       renderReply(reply);
     });
   });
@@ -165,7 +167,7 @@ $(document).ready(() => {
   // show the category results block and hide all other blocks
   $("#category-filter-button").on("click", () => {
     event.preventDefault();
-    let catName = $("#categoryFilterInput").val();
+    const catName = $("#categoryFilterInput").val();
     $("#categoryNameSpan").text(`${catName} Category Results`);
     $("#categoryFilterResults").removeClass("hidden"); // SHOW category results
     $("#current").addClass("hidden");
@@ -174,7 +176,7 @@ $(document).ready(() => {
     $("#schoolFilterResults").addClass("hidden");
     $("#districtFilterResults").addClass("hidden");
     $("#searchResults").addClass("hidden");
-    $.ajax(`/api/posts-category/${catName}`).done((reply) => {
+    $.ajax(`/api/posts-category/${catName}`).done(reply => {
       renderReply(reply);
     });
   });
