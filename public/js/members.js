@@ -1,6 +1,8 @@
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
+  $('[data-toggle="tooltip"]').tooltip();
+
   let currentUser = "";
 
   $.get("/api/user_data").then((data) => {
@@ -8,8 +10,12 @@ $(document).ready(() => {
     $("#member-id").text(data.id);
     console.log("data: ", data);
     $(".member-name").text(data.first);
+    $("#member-avicon")
+      .attr("title", `${data.first} ${data.last}`)
+      .attr("data-original-title", `${data.first} ${data.last}`);
+
     $(".member-avatar").html(
-      `<img src="https://avatars.dicebear.com/api/bottts/${data.id}.svg" width="40px" height="100%" class="avatar-pic" />`
+      `<img src="https://avatars.dicebear.com/api/bottts/${data.id}.svg" class="avatar-pic member-avatar-pic" />`
     );
   });
 

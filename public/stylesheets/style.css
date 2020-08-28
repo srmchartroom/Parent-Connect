@@ -5,8 +5,15 @@
 .avatar-pic {
   background-color: #bce0fd;
   border: 3px solid #2699fb;
-  border-radius: 25px;
+  border-radius: 20px;
   padding: 2px;
+}
+
+.member-avatar-pic {
+  width: 50px;
+  height: 100%;
+  padding: 3px;
+  border-radius: 25px;
 }
 
 p {
@@ -109,6 +116,11 @@ h2 {
 
 .signin-body-col {
   background-color: #233975;
+  z-index: -2;
+}
+
+.signin-form-inner {
+  max-height: 0;
 }
 
 .navbar,
@@ -133,4 +145,26 @@ h2 {
 .limit-height {
   height: 60vh;
   overflow-y: auto;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100vw;
+  padding: 20px;
+  border-top: 1px solid #2699fb;
+}
+
+.cornerbot {
+  position: fixed;
+  bottom: 50px;
+  left: -20px;
+  width: 10em;
+  z-index: -1;
+}
+
+.footer a {
+  color: #bce0fd;
+  text-decoration: underline;
 }
