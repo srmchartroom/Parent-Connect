@@ -1,22 +1,24 @@
+<!-- Top Navigation header -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-blue">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDark" aria-controls="navbarTogglerDark" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerLight" aria-controls="navbarTogglerLight" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <!-- Logo and parent connect elements -->
   <a class="navbar-brand" href="/members"><img src="/assets/PC-10.png" width="50px" height="100%" style=" margin-left: 20px; margin-right: 20px;" /> <span class="logo parents">parents</span> <span class="logo connect">connect</span></a>
-
+  <!-- Collapsible nav elements -->
   <div class="collapse navbar-collapse" id="navbarTogglerDark">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-      <li class="nav-item main-nav">
-        <a class="nav-link" href="/logout">Logout</a>
+      <!-- Logout Icon -->
+      <li class="nav-item main-nav mx-2 my-0">
+        <a class="nav-link text-center" href="/logout" data-animation="true" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="fas fa-sign-out-alt fa-1x mt-2" style="font-size: 30px;"></i></a>
       </li>
-      <li class="nav-item main-nav"></li>
-        <a class="nav-link" href="/members" tabindex="-1" aria-disabled="true">Latest Posts</a>
+      <!-- Refresh Icon -->
+      <li class="nav-item main-nav mx-2"></li>
+        <a class="nav-link text-center" href="/members" data-animation="true" tabindex="-1" aria-disabled="true" data-toggle="tooltip" data-placement="bottom" title="Refresh Latest Posts"><i class="fas fa-sync-alt fa-1x mt-2" style="font-size: 30px;"></i></a>
       </li>
-      <!--<li class="nav-item main-nav">
-        <a class="nav-link" href="/profile" tabindex="-1" aria-disabled="true">Update Profile</a>
-      </li> -->
-      <li class="nav-item main-nav"></li>
-        <span class="member-avatar"></span>
+      <!-- Member Profile Dynamic Avatar -->
+      <li class="nav-item main-nav ml-4"></li>
+        <a id="member-avicon" class="nav-link text-center" href="#" data-animation="true" tabindex="-1" aria-disabled="true" data-toggle="tooltip" data-placement="bottom" title=""><span class="member-avatar text-center"></span></a>
       </li>
     </ul>
     
@@ -25,7 +27,7 @@
 
 <div class="container">
   <div class="row" width="100%">
-    <div class="col-md-6"> <!-- 1ST COL/OPTIONS -->
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"> <!-- 1ST COL/OPTIONS -->
       <h2 class="mt-5">Welcome <span class="member-name"></span>!<span id="member-id" class="hidden"></span></h2>
       <p class="text-left">Let's Get Connecting!</p>
       <nav>
@@ -140,13 +142,6 @@
                 </div>
               </div>
             </form>
-            {{!-- <form id="byParent" class="my-5" width="100%"> <!-- By user -->
-              <div class="form-group">
-                <label for="userFilterInput">Filter by a Specific Parent's Posts:</label>
-                <input id="userFilterInput" class="form-control mr-sm-2 pr-0" type="search" placeholder="Enter Parent's Name Here" aria-label="Search" width="100%"><br>
-              </div>
-              <button id="user-filter-button" class="btn btn-signin my-2 my-sm-0" type="submit">Filter</button>
-            </form> --}}
             <form id="byCategory" class="my-5" width="100%">
               <div class="form-group"> <!-- Post Category DropDown Custom Selection -->
                   <label for="categoryFilterInput">Filter by Type of Post</label>
@@ -199,7 +194,7 @@
         </div>
       </div> <!-- End of all Tab contents -->
     </div> <!-- End of 1ST COL/OPTIONS -->
-    <div class="col-md-6 mt-5 pt-5 px-md-5"> <!-- 2ND COL/POST DISPLAY -->
+    <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 col-xs-12 mt-5 pt-5 px-md-5"> <!-- 2ND COL/POST DISPLAY -->
       <div class="pt-0"> <!-- CURRENT POSTS RESULTS (DEFAULT) -->
         <h5 id="current" class="text-dark">Latest Posts</h5>
         <h5 id="categoryFilterResults" class="text-dark hidden"><span id="categoryNameSpan"></span></h5>

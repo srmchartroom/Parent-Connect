@@ -1,9 +1,11 @@
 // Requiring necessary npm packages
 const express = require("express");
+const favicon = require("serve-favicon");
 const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 const config = require("./config/config.js");
+const path = require("path");
 
 // Set Handlebars.
 const exphbs = require("express-handlebars");
@@ -14,6 +16,7 @@ const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
+app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
