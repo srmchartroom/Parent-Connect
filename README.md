@@ -59,7 +59,7 @@ The application leaverages `node.js` and standard ES6 `JavaScript`, operates as 
 
 ## Usage
 
-The below provides an overview of the Parent Connect application, the code involved and how it works, as well as a demo of the application in action.
+The below provides an overview of the Parent Connect application, the code involved and how it works, as well as a demo of the application in action (video demo of the application coming soon; see the deployed version above in the meantime)
 
 [![OVERVIEW: THE PARENT CONNECT APP IN ACTION](https://chartroomcreative.com/gitassets/parent-connect.png)](https://chartroomcreative.com/gitassets/Parent-Connect-App.mp4)
 
